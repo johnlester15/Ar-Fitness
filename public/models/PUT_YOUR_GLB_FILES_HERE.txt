@@ -1,0 +1,10 @@
+Put your downloaded .glb files in this folder.
+
+Required filenames:
+push_up.glb
+air_squat.glb
+jumping_jack_sample_animation.glb
+burpee.glb
+bodyweight_crunch_3d_animation.glb
+barbell_bicep_curl_3d_animation.glb
+overhead_crescent_lunge.glb

@@ -1,0 +1,607 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #ffffff;
+  background: #000000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --line: rgba(255, 255, 255, 0.12);
+  --soft: rgba(255, 255, 255, 0.72);
+  --muted: rgba(255, 255, 255, 0.52);
+  --panel: rgba(255, 255, 255, 0.055);
+  --panel2: rgba(255, 255, 255, 0.085);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.13), transparent 30%),
+    linear-gradient(180deg, #050505 0%, #000000 42%, #050505 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 88px;
+  padding: 0 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.74);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brandLogo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #000000;
+  display: grid;
+  place-items: center;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  box-shadow: 0 16px 40px rgba(255, 255, 255, 0.13);
+}
+
+.brandLogo.small {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.brand p,
+.phoneHeader span {
+  display: block;
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar nav a {
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--soft);
+  background: rgba(255, 255, 255, 0.025);
+  transition: 0.2s ease;
+}
+
+.topbar nav a:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+main {
+  padding: 0 7vw 80px;
+}
+
+.hero {
+  min-height: calc(100vh - 88px);
+  display: grid;
+  grid-template-columns: 1fr minmax(340px, 480px);
+  gap: 44px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 22px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.42em;
+}
+
+.heroCopy h2,
+.trainerLeft h2,
+.libraryHeader h2 {
+  margin: 0;
+  font-size: clamp(52px, 7vw, 112px);
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+}
+
+.heroCopy p:not(.eyebrow),
+.trainerDesc {
+  max-width: 640px;
+  color: var(--soft);
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 30px 0 0;
+}
+
+.heroActions {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.primaryBtn,
+.ghostBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 850;
+  border: 1px solid var(--line);
+}
+
+.primaryBtn {
+  background: #ffffff;
+  color: #000000;
+}
+
+.ghostBtn {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+.phoneCard {
+  border: 1px solid var(--line);
+  border-radius: 36px;
+  min-height: 650px;
+  padding: 22px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
+    #050505;
+  box-shadow: 0 35px 110px rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.phoneHeader {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.phoneHeader strong {
+  display: block;
+  font-size: 16px;
+}
+
+.phoneModel {
+  flex: 1;
+  min-height: 420px;
+  border-radius: 30px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: #020202;
+}
+
+.phoneSelected {
+  min-height: 58px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  gap: 14px;
+}
+
+.phoneSelected strong {
+  font-size: 15px;
+}
+
+.phoneSelected span {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+.trainerSection {
+  padding: 70px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.65fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.022)),
+    rgba(255, 255, 255, 0.035);
+}
+
+.trainerLeft {
+  padding: 32px;
+  min-width: 0;
+}
+
+.trainerLeft h2 {
+  font-size: clamp(46px, 5.5vw, 86px);
+}
+
+.mainViewer {
+  margin-top: 28px;
+  height: 680px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #020202;
+}
+
+.trainerRight {
+  padding: 28px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.statBox {
+  min-height: 84px;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #000000;
+  padding: 18px;
+}
+
+.statBox span {
+  display: block;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.58);
+  margin-bottom: 8px;
+}
+
+.statBox strong {
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.infoBlock {
+  margin-top: 28px;
+}
+
+.infoBlock h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+}
+
+.muscleTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.muscleTags span,
+.filters button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #ffffff;
+}
+
+.infoBlock ol {
+  margin: 0;
+  padding-left: 22px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.95;
+}
+
+.featureList {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.featureCard {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.055);
+  padding: 22px;
+}
+
+.featureCard b {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  color: #000000;
+}
+
+.featureCard h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.featureCard p {
+  margin: 0;
+  color: var(--soft);
+  line-height: 1.55;
+}
+
+.librarySection {
+  padding: 70px 0 20px;
+}
+
+.libraryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.libraryHeader h2 {
+  font-size: clamp(44px, 5vw, 76px);
+}
+
+.libraryHeader input {
+  width: min(420px, 100%);
+  min-height: 56px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.045);
+  outline: none;
+  padding: 0 20px;
+}
+
+.libraryHeader input:focus {
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.filters button.active {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 850;
+}
+
+.exerciseGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.exerciseCard {
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 22px;
+  min-height: 220px;
+  transition: 0.2s ease;
+}
+
+.exerciseCard:hover,
+.exerciseCard.selected {
+  transform: translateY(-4px);
+  background: #ffffff;
+  color: #000000;
+}
+
+.exerciseCard span {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--line);
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+.exerciseCard.selected span,
+.exerciseCard:hover span {
+  background: #000000;
+  color: #ffffff;
+}
+
+.exerciseCard h3 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.05em;
+}
+
+.exerciseCard p {
+  margin: 12px 0 20px;
+  color: var(--soft);
+  line-height: 1.55;
+}
+
+.exerciseCard:hover p,
+.exerciseCard.selected p {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.exerciseCard small {
+  color: inherit;
+  opacity: 0.76;
+  font-weight: 750;
+}
+
+.viewerShell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255,255,255,0.07), transparent 28%),
+    linear-gradient(180deg, #050505, #000000);
+}
+
+.viewerMount {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.viewerMount canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.modelStatus,
+.viewerHint {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  z-index: 5;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.72);
+  color: white;
+  font-size: 13px;
+}
+
+.viewerHint {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 1180px) {
+  .hero,
+  .trainerSection {
+    grid-template-columns: 1fr;
+  }
+
+  .phoneCard {
+    max-width: 560px;
+  }
+
+  .exerciseGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    height: auto;
+    padding: 16px 20px;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .topbar nav {
+    display: none;
+  }
+
+  main {
+    padding: 0 20px 60px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 48px 0;
+  }
+
+  .heroCopy h2,
+  .trainerLeft h2,
+  .libraryHeader h2 {
+    font-size: 48px;
+  }
+
+  .heroCopy p:not(.eyebrow),
+  .trainerDesc {
+    font-size: 16px;
+  }
+
+  .phoneCard {
+    min-height: 560px;
+  }
+
+  .trainerSection,
+  .librarySection {
+    padding: 42px 0;
+  }
+
+  .trainerLeft,
+  .trainerRight {
+    padding: 20px;
+    border-radius: 26px;
+  }
+
+  .mainViewer {
+    height: 520px;
+  }
+
+  .statsGrid,
+  .exerciseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .libraryHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
